@@ -60,5 +60,6 @@ jobs:
 
       - name: Run Hardhat tests
         run: |
+          npx hardhat compile
           npx hardhat test
         id: hardhat-test
