@@ -1,4 +1,4 @@
-# foundry-hardhat-template • [![tests](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/tests.yml/badge.svg)](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/tests.yml) [![lints](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/lints.yml/badge.svg)](https://github.com/brianle83/foundry-template/actions/workflows/lints.yml) ![license](https://img.shields.io/github/license/brianle83/foundry-hardhat-template)
+# foundry-hardhat-template • [![tests](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/tests.yml/badge.svg)](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/tests.yml) [![lints](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/lints.yml/badge.svg)](https://github.com/brianle83/foundry-hardhat-template/actions/workflows/lints.yml) ![license](https://img.shields.io/github/license/brianle83/foundry-hardhat-template)
 
 Template repository for Hardhat and Foundry in projects.
 

@@ -1,20 +1,20 @@
-import fs from "fs";
-import "@nomiclabs/hardhat-waffle";
-import "@typechain/hardhat";
-import "hardhat-preprocessor";
-import { HardhatUserConfig, task } from "hardhat/config";
+import fs from "fs"
+import "@nomiclabs/hardhat-waffle"
+import "@typechain/hardhat"
+import "hardhat-preprocessor"
+import { HardhatUserConfig, task } from "hardhat/config"
 
-import example from "./tasks/example";
+import example from "./tasks/example"
 
 function getRemappings() {
   return fs
     .readFileSync("remappings.txt", "utf8")
     .split("\n")
     .filter(Boolean)
-    .map((line) => line.trim().split("="));
+    .map(line => line.trim().split("="))
 }
 
-task("example", "Example task").setAction(example);
+task("example", "Example task").setAction(example)
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -32,19 +32,19 @@ const config: HardhatUserConfig = {
   },
   // This fully resolves paths for imports in the ./lib directory for Hardhat
   preprocess: {
-    eachLine: (hre) => ({
+    eachLine: hre => ({
       transform: (line: string) => {
         if (line.match(/^\s*import /i)) {
           getRemappings().forEach(([find, replace]) => {
             if (line.match('"' + find)) {
-              line = line.replace('"' + find, '"' + replace);
+              line = line.replace('"' + find, '"' + replace)
             }
-          });
+          })
         }
-        return line;
+        return line
       },
     }),
   },
-};
+}
 
-export default config;
+export default config
