@@ -1,10 +1,14 @@
 import fs from "fs"
+import { resolve } from "path"
 import "@nomiclabs/hardhat-waffle"
 import "@typechain/hardhat"
 import "hardhat-preprocessor"
 import { HardhatUserConfig, task } from "hardhat/config"
+import { config as dotenvConfig } from "dotenv"
 
 import example from "./tasks/example"
+
+dotenvConfig({ path: resolve(__dirname, "./.env") })
 
 function getRemappings() {
   return fs
@@ -24,6 +28,13 @@ const config: HardhatUserConfig = {
         enabled: true,
         runs: 200,
       },
+    },
+  },
+  defaultNetwork: "hardhat",
+  networks: {
+    mainnet: {
+      url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`,
+      accounts: [process.env.PRIVATE_KEY!],
     },
   },
   paths: {
